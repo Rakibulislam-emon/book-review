@@ -14,6 +14,7 @@ import SingleBookDtails from './Components/SingleBookDtails/SingleBookDtails.jsx
 import { ToastContainer, } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import ReadBooks from './Pages/ReadBooks.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,8 +39,10 @@ const router = createBrowserRouter([
         children:[
           {
             path: '',
-            element: <ReadBooks></ReadBooks>
+            element: <ReadBooks></ReadBooks>,
+            
           },
+          
         ]
       },
       {

@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import {  useLoaderData,  useParams } from "react-router-dom"; import Tags from "../Tags/Tags";
+import {  useLoaderData,  useNavigate,  useParams } from "react-router-dom"; import Tags from "../Tags/Tags";
 import { useState } from 'react';
 // import testImage from '../../../public/images/one.jpg';
 export default function SingleBookDetails() {
@@ -8,7 +8,7 @@ export default function SingleBookDetails() {
     const book = data.find((book) => book.bookId == bookId)
     console.log(book)
     const { bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating, image } = book;
-    console.log(image)
+    
     
     // toast
     const [bookClicked ,setBookClicked] = useState(false);
@@ -29,7 +29,16 @@ export default function SingleBookDetails() {
             toast.error('book already added to wishlist!')
         }
     };
-
+    // shared data 
+    
+    const navigate = useNavigate()
+    const handelNavigate =()=>{
+        navigate("/listedBook",{state : {books : book}})
+    }
+    const handleshared =()=>{
+        handleRead()
+        handelNavigate()
+    }
    
 
     return (
@@ -64,7 +73,7 @@ export default function SingleBookDetails() {
                     </div>
                 </div>
                 <div className="flex gap-12 mt-16">
-                    <button  onClick={handleRead} className="btn btn-ghost px-8 border-red-500">Read</button>
+                    <button  onClick={handleshared} className="btn btn-ghost px-8 border-red-500">Read</button>
                     <button onClick={handleWishlist} className="btn bg-[#50B1C9]  text-[white]">Wishlist</button>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 import PropTypes from 'prop-types';
+import SingleBookDetails from '../Components/SingleBookDtails/SingleBookDtails';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -37,6 +38,8 @@ TriangleBar.propTypes = {
 
 export default function PagesToRead() {
   return (
+    <>
+    
     <div className='flex justify-center border  mt-20 '>
       <BarChart
         width={1000}
@@ -54,6 +57,8 @@ export default function PagesToRead() {
         </Bar>
       </BarChart>
     </div>
+    
+    </>
   );
 }
 
